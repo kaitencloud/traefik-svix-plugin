@@ -1,0 +1,14 @@
+displayName: Traefik Svix Plugin
+
+type: middleware
+
+import: github.com/kaitencloud/traefik-svix-plugin
+
+summary: Traefik middleware plugin for handling [Svix](https://www.svix.com/) signed http webhooks requests.
+
+# Medias associated to the plugin (optional)
+#iconPath: foo/icon.png
+#bannerPath: foo/banner.png
+
+testData:
+  SvixSigningSecret: "your-svix-signing-secret"
