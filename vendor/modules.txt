@@ -1,0 +1,9 @@
+# github.com/google/uuid v1.6.0
+## explicit
+github.com/google/uuid
+# github.com/svix/svix-webhooks v1.69.0
+## explicit; go 1.20
+github.com/svix/svix-webhooks/go
+github.com/svix/svix-webhooks/go/internal
+github.com/svix/svix-webhooks/go/models
+github.com/svix/svix-webhooks/go/utils
