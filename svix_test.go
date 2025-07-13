@@ -12,14 +12,14 @@ import (
 	svix "github.com/svix/svix-webhooks/go"
 )
 
-func TestSvix(t *testing.T) {
+func TestSignedWebhook(t *testing.T) {
 	// testing variables (from: https://github.com/svix/svix-webhooks/blob/efa8ef1d179acba49afac1e8c156527856fdf787/go/webhook_test.go#L212)
-	secret := "whsec_MfKQ9r8GKYqrTwjUPD8ILPZIo2LaLaSw"
+	svixSigningSecret := "whsec_MfKQ9r8GKYqrTwjUPD8ILPZIo2LaLaSw"
 	msgID := "msg_p5jXN8AQM9LWM0D4loKWxJek"
 	timestamp := time.Now()
 	payload := []byte(`{"test": 2432232314}`)
 
-	wh, err := svix.NewWebhook(secret)
+	wh, err := svix.NewWebhook(svixSigningSecret)
 
 	if err != nil {
 		t.Fatalf("Error creating svix webhook: %s", err)
@@ -31,7 +31,7 @@ func TestSvix(t *testing.T) {
 	}
 
 	cfg := CreateConfig()
-	cfg.secret = secret
+	cfg.SvixSigningSecret = svixSigningSecret
 
 	ctx := context.Background()
 	next := http.HandlerFunc(func(rw http.ResponseWriter, req *http.Request) {})

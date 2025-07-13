@@ -10,12 +10,12 @@ import (
 )
 
 type Config struct {
-	secret string
+	SvixSigningSecret string
 }
 
 func CreateConfig() *Config {
 	return &Config{
-		secret: os.Getenv("SVIX_SECRET"),
+		SvixSigningSecret: os.Getenv("SVIX_SIGNING_SECRET"),
 	}
 }
 
@@ -26,7 +26,7 @@ type SvixPlugin struct {
 }
 
 func New(ctx context.Context, next http.Handler, config *Config, name string) (http.Handler, error) {
-	wh, err := svix.NewWebhook(config.secret)
+	wh, err := svix.NewWebhook(config.SvixSigningSecret)
 
 	if err != nil {
 		return nil, err
