@@ -2,11 +2,9 @@ package svix_plugin
 
 import (
 	"context"
+	svix "github.com/svix/svix-webhooks/go"
 	"io"
 	"net/http"
-	"os"
-
-	svix "github.com/svix/svix-webhooks/go"
 )
 
 type Config struct {
@@ -15,7 +13,7 @@ type Config struct {
 
 func CreateConfig() *Config {
 	return &Config{
-		SvixSigningSecret: os.Getenv("SVIX_SIGNING_SECRET"),
+		SvixSigningSecret: "",
 	}
 }
 
