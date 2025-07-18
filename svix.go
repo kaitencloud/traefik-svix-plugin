@@ -1,4 +1,4 @@
-package svix_plugin
+package traefik_svix_plugin
 
 import (
 	"context"
