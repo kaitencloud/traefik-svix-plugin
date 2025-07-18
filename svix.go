@@ -1,6 +1,7 @@
 package traefik_svix_plugin
 
 import (
+	"bytes"
 	"context"
 	svix "github.com/svix/svix-webhooks/go"
 	"io"
@@ -51,5 +52,6 @@ func (s *SvixPlugin) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	req.Body = io.NopCloser(bytes.NewBuffer(payload))
 	s.next.ServeHTTP(rw, req)
 }
