@@ -8,7 +8,7 @@ import (
 )
 
 type Config struct {
-	SvixSigningSecret string
+	SvixSigningSecret string `json:"svixSigningSecret,omitempty"`
 }
 
 func CreateConfig() *Config {
