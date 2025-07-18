@@ -11,4 +11,4 @@ summary: Traefik middleware plugin for handling Svix signed http webhooks reques
 #bannerPath: foo/banner.png
 
 testData:
-  svixSigningSecret: "your-svix-signing-secret"
+  svixSigningSecret: "eW91ci1zdml4LXNpZ25pbmctc2VjcmV0Cg=="
